@@ -8,6 +8,7 @@ void Run();
 
 SDL_Window *window;
 SDL_GLContext glContext;
+SDL_Surface *screen;
 
 bool Init()
 {
@@ -46,6 +47,7 @@ bool Init()
 
     //Map OpenGL Context to Window
     glContext = SDL_GL_CreateContext(window);
+    screen = SDL_GetWindowSurface(window);
 
     return true;
 }

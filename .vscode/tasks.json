@@ -56,7 +56,7 @@
                 "args": [
                     "-g",
                     "-std=c++11",
-                    "main.cpp",
+                    "*.cpp",
                     "-o", "Builds/Win_Build/engine",
                     "-LDependencies/bin",
                     "-LBuilds/Win_Build",
