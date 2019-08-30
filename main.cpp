@@ -1,16 +1,17 @@
 #include "common.h"
 
-bool isRunning = true;
-
-bool Init();
+bool init();
 void CleanUp();
 void Run();
+
+int width = 640;
+int height = 480;
 
 SDL_Window *window;
 SDL_GLContext glContext;
 SDL_Surface *screen;
 
-bool Init()
+bool init()
 {
     if (SDL_Init(SDL_INIT_NOPARACHUTE & SDL_INIT_EVERYTHING) != 0)
     {
@@ -31,8 +32,8 @@ bool Init()
         "Game Engine",
         SDL_WINDOWPOS_CENTERED,
         SDL_WINDOWPOS_CENTERED,
-        640,
-        480,
+        width,
+        height,
         SDL_WINDOW_OPENGL);
 
     //Check that the window was succesfully created
@@ -47,6 +48,7 @@ bool Init()
 
     //Map OpenGL Context to Window
     glContext = SDL_GL_CreateContext(window);
+    //Get window surface
     screen = SDL_GetWindowSurface(window);
 
     return true;
@@ -55,7 +57,7 @@ bool Init()
 int WinMain()
 {
     //Error Checking/Initialisation
-    if (!Init())
+    if (!init())
     {
         printf("Failed to Initialize");
         return -1;
@@ -78,6 +80,7 @@ void CleanUp()
 {
     //Free up resources
     SDL_GL_DeleteContext(glContext);
+    SDL_FreeSurface(screen);
     SDL_DestroyWindow(window);
     SDL_Quit();
 }
@@ -101,7 +104,6 @@ void Run()
                 case SDLK_ESCAPE:
                     gameLoop = false;
                     break;
-
                 default:
                     break;
                 }
