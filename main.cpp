@@ -80,7 +80,6 @@ void CleanUp()
 {
     //Free up resources
     SDL_GL_DeleteContext(glContext);
-    SDL_FreeSurface(screen);
     SDL_DestroyWindow(window);
     SDL_Quit();
 }
