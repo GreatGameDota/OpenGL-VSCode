@@ -54,7 +54,7 @@ bool init()
     return true;
 }
 
-int WinMain()
+int main()
 {
     //Error Checking/Initialisation
     if (!init())

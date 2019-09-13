@@ -19,6 +19,7 @@ using namespace std;
 
 /*=======SDL2=======*/
 
+#define SDL_MAIN_HANDLED
 #include "./Dependencies/include/SDL2/SDL.h"
 #include "./Dependencies/include/SDL2/SDL_opengl.h"
 #include "./Dependencies/include/SDL2/SDL_ttf.h"
